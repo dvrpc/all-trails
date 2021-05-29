@@ -62,7 +62,9 @@ h4{
 }
 #modal{
     position: fixed;
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 3;
     top: 0;
     width: 100%;
