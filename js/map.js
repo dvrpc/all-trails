@@ -5,15 +5,18 @@ const initMap = () => {
     return new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/keriklinges/ckn8y5ydm0lx717p8stlssl5a',
-        center: [-75.2273, 40.071],
-        bounds: [[-76.09405517578125, 39.49211914385648],[-74.32525634765625,40.614734298694216]],
+       //dvrpc center: [-75.2273, 40.071],
+        center: [-74.777760,39.982220],
+        zoom: 8
+    //    bounds: [[-76.09405517578125, 39.49211914385648],[-74.32525634765625,40.614734298694216]],
     })
 }
 
 const makeRegionalExtentControl = map => {
     // coordinates and zoom level for regional extent
     const dvrpcExtent = {
-        center: [-75.142241, 40.0518322],
+     //   center: [-75.142241, 40.0518322],
+        center: [-74.777760,39.982220], 
         zoom: 8.25
     }
 

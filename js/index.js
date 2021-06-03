@@ -52,10 +52,10 @@ map.on('load', () => {
     map.addSource(
         'circuit_trails',
         {'type':'geojson',
-        'data':'https://opendata.arcgis.com/datasets/4a1321bb7b6f403da0c244402bcb0c0a_0.geojson'
+        'data':'https://arcgis.dvrpc.org/portal/rest/services/Transportation/CircuitTrails/FeatureServer/0/query?where=circuit+%3D+%27Existing%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson'
         });
     map.addLayer({
-        'id':'Circuit Trails',
+        'id':'The Circuit Trails',
         'type':'line',
         'source':'circuit_trails',
         'layout':{'visibility': 'visible'},
@@ -64,29 +64,29 @@ map.on('load', () => {
         'line-color':'#4fe314'
         }
     });
-             // Grey Mask for PA Counties
-             map.addLayer({
-                "id": "county2",
-                "type": "fill",
-                "source": {
-                    type: 'vector',
-                    url: 'https://tiles.dvrpc.org/data/dvrpc-municipal.json'
-                },
-                "source-layer": "county",
-                "layout": {},
-                paint: {
-                // 'fill-outline-color': '#f7c59f',
-                 'fill-color': 'rgba(0,0,0,0.1)'
-                },
-                "filter": 
-                //["==","dvrpc","Yes"]
-                ["all",["!=","name","Burlington"],["!=","name","Camden"],["!=","name","Mercer"],["!=","name","Gloucester"]]
-              });
-  
-              map.addSource('cnty', {
-              'type': 'geojson',
-                 'data':"https://arcgis.dvrpc.org/portal/rest/services/Boundaries/CountyBoundaries/FeatureServer/0/query?where=co_name+%3D+%27Bucks%27+or+co_name+%3D+%27Chester%27+or+co_name+%3D+%27Delaware%27+or+co_name+%3D+%27Montgomery%27+or+co_name+%3D+%27Philadelphia%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson"
-              });
+    // Grey Mask for PA Counties
+    map.addLayer({
+    "id": "county2",
+    "type": "fill",
+    "source": {
+        type: 'vector',
+        url: 'https://tiles.dvrpc.org/data/dvrpc-municipal.json'
+    },
+    "source-layer": "county",
+    "layout": {},
+    paint: {
+    // 'fill-outline-color': '#f7c59f',
+        'fill-color': 'rgba(0,0,0,0.1)'
+    },
+    "filter": 
+    //["==","dvrpc","Yes"]
+    ["all",["!=","name","Burlington"],["!=","name","Camden"],["!=","name","Mercer"],["!=","name","Gloucester"]]
+    });
+
+    map.addSource('cnty', {
+    'type': 'geojson',
+        'data':"https://arcgis.dvrpc.org/portal/rest/services/Boundaries/CountyBoundaries/FeatureServer/0/query?where=co_name+%3D+%27Bucks%27+or+co_name+%3D+%27Chester%27+or+co_name+%3D+%27Delaware%27+or+co_name+%3D+%27Montgomery%27+or+co_name+%3D+%27Philadelphia%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson"
+    });
 
 });
 
@@ -123,7 +123,7 @@ map.on('mouseleave', 'NJ Trails', function () {
     });
 
 //Click Circuit Trails
-    map.on('click', 'Circuit Trails', function (e) {
+    map.on('click', 'The Circuit Trails', function (e) {
         new mapboxgl.Popup()
         .setLngLat(e.lngLat)
         .setHTML('<b>Trail Name: </b>' + e.features[0].properties["name"]
@@ -131,12 +131,12 @@ map.on('mouseleave', 'NJ Trails', function () {
         .addTo(map);
         });
     // Change the cursor to a pointer when the mouse is over the trails layer.
-    map.on('mouseenter', 'Circuit Trails', function () {
+    map.on('mouseenter', 'The Circuit Trails', function () {
         map.getCanvas().style.cursor = 'pointer';
         });
     
     // Change it back to default when it leaves.
-    map.on('mouseleave', 'Circuit Trails', function () {
+    map.on('mouseleave', 'The Circuit Trails', function () {
         map.getCanvas().style.cursor = '';
         });
 
@@ -150,9 +150,9 @@ handleModal(modal, modalToggle, closeModal)
 map.on('idle', function () {
     // If these two layers have been added to the style,
     // add the toggle buttons.
-    if (map.getLayer('NJ Trails') && map.getLayer('Circuit Trails')) {
+    if (map.getLayer('NJ Trails') && map.getLayer('The Circuit Trails')) {
     // Enumerate ids of the layers.
-    var toggleableLayerIds = ['NJ Trails', 'Circuit Trails'];
+    var toggleableLayerIds = ['NJ Trails', 'The Circuit Trails'];
     // Set up the corresponding toggle button for each layer.
     for (var i = 0; i < toggleableLayerIds.length; i++) {
     var id = toggleableLayerIds[i];
