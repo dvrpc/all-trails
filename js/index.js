@@ -21,7 +21,7 @@ map.on('load', () => {
     map.addSource(
         'NJ_trails',
         {'type':'geojson',
-        'data': 'https://arcgis.dvrpc.org/portal/rest/services/Transportation/NJ_Trails/FeatureServer/0/query?where=1=1&oursr=4326&outfields=*&f=geojson'
+        'data': 'https://arcgis.dvrpc.org/portal/rest/services/Transportation/All_Trails/FeatureServer/0/query?where=1=1&oursr=4326&outfields=*&f=geojson'
     });
     map.addLayer({
         'id':'NJ Trails',
