@@ -33,20 +33,24 @@ map.on('load', () => {
             'line-color': [
                 "case",
                 ["==", ["get","surface"], "S"],
-                "#715427",
+               // "#715427",
+               "#e0c8a4",
                 ["==", ["get","surface"], "CSG"],
-                "#000066",
+                //"#000066",
+                "#0000ef",
                 ["==", ["get","surface"], "D"],
                 "#fa751f",
                 ["==", ["get","surface"], "G"],
-                "#266900",
+             //   "#266900",
+                "#349000",
                 ["==", ["get","surface"], "P"],
                 "#ff80ed",
                 ["==", ["get","surface"], "SD"],
                 "#407294",
                 ["==", ["get","surface"], "V"],
-                "#ffdb00",
-                "#794d8d"],
+              //  "#ffdb00",
+               "#ff3b3b",
+                "#ff3b3b"],
             'line-opacity':1}
     });
     map.addSource(
@@ -87,6 +91,17 @@ map.on('load', () => {
     'type': 'geojson',
         'data':"https://arcgis.dvrpc.org/portal/rest/services/Boundaries/CountyBoundaries/FeatureServer/0/query?where=co_name+%3D+%27Bucks%27+or+co_name+%3D+%27Chester%27+or+co_name+%3D+%27Delaware%27+or+co_name+%3D+%27Montgomery%27+or+co_name+%3D+%27Philadelphia%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson"
     });
+
+    // add map events here (click, mousemove, etc)
+    map.addLayer(
+        {
+        'id': 'nearmap',
+        'type': 'raster',
+        'source': 'nearmap',
+        'paint': {}
+        },
+        'road-street'
+    );
 
 });
 

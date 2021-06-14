@@ -6,7 +6,7 @@ const layers = {
         "source-layer": "county",
         "paint": {
             'line-width': 1.5,
-            'line-color': '#666666'
+            'line-color': '#f3f4f5'
         },
         "filter": [
             "==",
@@ -21,7 +21,7 @@ const layers = {
         "source-layer": "municipalities",
         "paint": {
             'line-width': 0.25,
-            'line-color': '#b2b2b2'
+            'line-color': '#dee1e3'
         }
     }
     // add more layers here
