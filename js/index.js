@@ -33,24 +33,20 @@ map.on('load', () => {
             'line-color': [
                 "case",
                 ["==", ["get","surface"], "S"],
-               // "#715427",
-               "#e0c8a4",
+               "#D8BC96",
                 ["==", ["get","surface"], "CSG"],
-                //"#000066",
-                "#0000ef",
+                "#0078AE",
                 ["==", ["get","surface"], "D"],
                 "#fa751f",
                 ["==", ["get","surface"], "G"],
-             //   "#266900",
                 "#349000",
                 ["==", ["get","surface"], "P"],
-                "#ff80ed",
+                "#D882C8",
                 ["==", ["get","surface"], "SD"],
-                "#407294",
+                "#67ABD1",
                 ["==", ["get","surface"], "V"],
-              //  "#ffdb00",
                "#ff3b3b",
-                "#ff3b3b"],
+                "#EF4343"],
             'line-opacity':1}
     });
     map.addSource(
@@ -93,15 +89,15 @@ map.on('load', () => {
     });
 
     // add map events here (click, mousemove, etc)
-    map.addLayer(
-        {
-        'id': 'nearmap',
-        'type': 'raster',
-        'source': 'nearmap',
-        'paint': {}
-        },
-        'road-street'
-    );
+    // map.addLayer(
+    //     {
+    //     'id': 'nearmap',
+    //     'type': 'raster',
+    //     'source': 'nearmap',
+    //     'paint': {}
+    //     },
+    //     'road-street'
+    // );
 
 });
 

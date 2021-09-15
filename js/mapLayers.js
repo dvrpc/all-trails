@@ -5,7 +5,7 @@ const layers = {
         "source": "boundaries",
         "source-layer": "county",
         "paint": {
-            'line-width': 1.5,
+            'line-width': 2.5,
             'line-color': '#f3f4f5'
         },
         "filter": [

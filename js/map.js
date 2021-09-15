@@ -4,8 +4,9 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoia2VyaWtsaW5nZXMiLCJhIjoiY2s4YnYwc3AxMGN0MjNra
 const initMap = () => {
     return new mapboxgl.Map({
         container: 'map',
-      //  style: 'mapbox://styles/keriklinges/ckn8y5ydm0lx717p8stlssl5a',
-        style: 'mapbox://styles/mapbox/satellite-streets-v11',
+     //   style: 'mapbox://styles/keriklinges/ckn8y5ydm0lx717p8stlssl5a',
+        style: 'mapbox://styles/mapbox/light-v10', 
+     //   style: 'mapbox://styles/mapbox/satellite-streets-v11',
        //dvrpc center: [-75.2273, 40.071],
         center: [-74.777760,39.982220],
         zoom: 8
