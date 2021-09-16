@@ -4,22 +4,18 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoia2VyaWtsaW5nZXMiLCJhIjoiY2s4YnYwc3AxMGN0MjNra
 const initMap = () => {
     return new mapboxgl.Map({
         container: 'map',
-     //   style: 'mapbox://styles/keriklinges/ckn8y5ydm0lx717p8stlssl5a',
         style: 'mapbox://styles/mapbox/light-v10', 
      //   style: 'mapbox://styles/mapbox/satellite-streets-v11',
-       //dvrpc center: [-75.2273, 40.071],
         center: [-74.777760,39.982220],
-        zoom: 8
-    //    bounds: [[-76.09405517578125, 39.49211914385648],[-74.32525634765625,40.614734298694216]],
-    })
+        zoom: 8.5
+  })
 }
 
 const makeRegionalExtentControl = map => {
     // coordinates and zoom level for regional extent
     const dvrpcExtent = {
-     //   center: [-75.142241, 40.0518322],
         center: [-74.777760,39.982220], 
-        zoom: 8.25
+        zoom: 8.5
     }
 
     const navigationControl = new mapboxgl.NavigationControl();

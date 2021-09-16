@@ -2,31 +2,35 @@ import makeMap from './map.js'
 import sources from './mapSources.js'
 import layers from './mapLayers.js'
 import handleModal from './modal.js'
+import { toggleLayers } from "./forms.js";
 // add additional imports here (popups, forms, etc)
-
-
 const modal = document.getElementById('modal')
 const modalToggle = document.getElementById('modal-toggle')
 const closeModal = document.getElementById('close-modal')
 // get additional elements here (forms, etc)
-
-
+// toggle base and basemap layers 
+const toggleLayerForms = Array.from(
+    document.querySelectorAll(".sidebar-form-toggle")
+  );
 // map
 const map = makeMap()
 
 map.on('load', () => {
     for(const source in sources) map.addSource(source, sources[source])
     for(const layer in layers) map.addLayer(layers[layer]);
+
+     // Wire all checkbox layer toggles to an on-click event
+     toggleLayerForms.forEach((form) => toggleLayers(form, map));
     //KK added//
     map.addSource(
-        'NJ_trails',
+        'nj_trails',
         {'type':'geojson',
         'data': 'https://arcgis.dvrpc.org/portal/rest/services/Transportation/All_Trails/FeatureServer/0/query?where=1=1&oursr=4326&outfields=*&f=geojson'
     });
     map.addLayer({
-        'id':'NJ Trails',
+        'id':'nj_trails',
         'type':'line',
-        'source':'NJ_trails',
+        'source':'nj_trails',
         'layout':{'visibility': 'visible'},
         'paint':{
             'line-width':3,
@@ -48,21 +52,6 @@ map.on('load', () => {
                "#ff3b3b",
                 "#EF4343"],
             'line-opacity':1}
-    });
-    map.addSource(
-        'circuit_trails',
-        {'type':'geojson',
-        'data':'https://arcgis.dvrpc.org/portal/rest/services/Transportation/CircuitTrails/FeatureServer/0/query?where=circuit+%3D+%27Existing%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson'
-        });
-    map.addLayer({
-        'id':'The Circuit Trails',
-        'type':'line',
-        'source':'circuit_trails',
-        'layout':{'visibility': 'visible'},
-        'paint':{
-        'line-width':1.5,
-        'line-color':'#4fe314'
-        }
     });
     // Grey Mask for PA Counties
     map.addLayer({
@@ -89,21 +78,23 @@ map.on('load', () => {
     });
 
     // add map events here (click, mousemove, etc)
-    // map.addLayer(
-    //     {
-    //     'id': 'nearmap',
-    //     'type': 'raster',
-    //     'source': 'nearmap',
-    //     'paint': {}
-    //     },
-    //     'road-street'
-    // );
+   // Add NearMap Imagery, it is added here do to neediung to place layer below road-street layer
+   map.addLayer(
+    {
+    'id': 'nearmap',
+    'type': 'raster',
+    'source': 'nearmap',
+    'paint': {},
+    "layout": {"visibility":"none"}
+    },
+    'road-street'
+    );
 
 });
 
 // When a click event occurs on a feature in the states layer, open a popup at the
 // location of the click, with description HTML from its properties.
-map.on('click', 'NJ Trails', function (e) {
+map.on('click', 'nj_trails', function (e) {
     if (e.features[0].properties["multi_use"] === "N"){ var mu_status = "<br/><b>Multi-Use:</b> No"   ;}
     else if (e.features[0].properties["multi_use"] === "Y"){ var mu_status = "<br/><b>Multi-Use:</b> Yes";}
     else if (e.features[0].properties["multi_use"] === "Yes"){ var mu_status = "<br/><b>Multi-Use:</b> Yes";}
@@ -121,20 +112,18 @@ map.on('click', 'NJ Trails', function (e) {
     .addTo(map);
     });
 
-
-
 // Change the cursor to a pointer when the mouse is over the trails layer.
-map.on('mouseenter', 'NJ Trails', function () {
+map.on('mouseenter', 'nj_trails', function () {
     map.getCanvas().style.cursor = 'pointer';
     });
 
 // Change it back to default when it leaves.
-map.on('mouseleave', 'NJ Trails', function () {
+map.on('mouseleave', 'nj_trails', function () {
     map.getCanvas().style.cursor = '';
     });
 
 //Click Circuit Trails
-    map.on('click', 'The Circuit Trails', function (e) {
+    map.on('click', 'circuit_trails', function (e) {
         new mapboxgl.Popup()
         .setLngLat(e.lngLat)
         .setHTML('<b>Trail Name: </b>' + e.features[0].properties["name"]
@@ -142,69 +131,13 @@ map.on('mouseleave', 'NJ Trails', function () {
         .addTo(map);
         });
     // Change the cursor to a pointer when the mouse is over the trails layer.
-    map.on('mouseenter', 'The Circuit Trails', function () {
+    map.on('mouseenter', 'circuit_trails', function () {
         map.getCanvas().style.cursor = 'pointer';
         });
     
     // Change it back to default when it leaves.
-    map.on('mouseleave', 'The Circuit Trails', function () {
+    map.on('mouseleave', 'circuit_trails', function () {
         map.getCanvas().style.cursor = '';
         });
-
 // modal
 handleModal(modal, modalToggle, closeModal)
-
-
-
-//Make layers selectable
-// After the last frame rendered before the map enters an "idle" state.
-map.on('idle', function () {
-    // If these two layers have been added to the style,
-    // add the toggle buttons.
-    if (map.getLayer('NJ Trails') && map.getLayer('The Circuit Trails')) {
-    // Enumerate ids of the layers.
-    var toggleableLayerIds = ['NJ Trails', 'The Circuit Trails'];
-    // Set up the corresponding toggle button for each layer.
-    for (var i = 0; i < toggleableLayerIds.length; i++) {
-    var id = toggleableLayerIds[i];
-    if (!document.getElementById(id)) {
-    // Create a link.
-    var link = document.createElement('a');
-    link.id = id;
-    link.href = '#';
-    link.textContent = id;
-    link.className = 'active';
-    // Show or hide layer when the toggle is clicked.
-    link.onclick = function (e) {
-    var clickedLayer = this.textContent;
-    e.preventDefault();
-    e.stopPropagation();
-     
-    var visibility = map.getLayoutProperty(
-    clickedLayer,
-    'visibility'
-    );
-     
-    // Toggle layer visibility by changing the layout object's visibility property.
-    if (visibility === 'visible') {
-    map.setLayoutProperty(
-    clickedLayer,
-    'visibility',
-    'none'
-    );
-    this.className = '';
-    } else {
-    this.className = 'active';
-    map.setLayoutProperty(
-    clickedLayer,
-    'visibility',
-    'visible'
-    );
-    }
-    };
-    var layers = document.getElementById('menu');
-    layers.appendChild(link);}}
-    }});
-
-
-

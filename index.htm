@@ -25,6 +25,8 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,700&amp;display=swap">
       
         <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css">
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
+     
         <link rel="stylesheet" href="./css/styles.css">
         <link rel="stylesheet" href="./css/mobile.css" media="(max-width: 800px)">
 
@@ -51,27 +53,78 @@
                 <a href="https://www.dvrpc.org/webmaps/thecircuit/" class="nav-links" target="_new">The Circuit Trails</a>
             </div>
         </nav>
-    <!--KK added-->
-        <div id="menu"></div>
-    <!--KK added-->
-
-        <main id="map"></main>
-   <!--KK added-->
-        <div id="trails-legend" class="legend">
-            <h3>NJ Trails </h3>
-            <p>Surface Material Type</p>
-            <div><span style="background-color: #0078AE"></span>Crushed Stone/Gravel</div>
-            <div><span style="background-color: #fa751f"></span>Dirt</div>
-            <div><span style="background-color: #349000"></span>Grass</div>
-            <div><span style="background-color: #D882C8"></span>Paved</div>
-            <div><span style="background-color: #67ABD1"></span>Stone Dust</div>
-            <div><span style="background-color: #D8BC96"></span>Sand/Sandy Soil</div>
-            <div><span style="background-color: #ffdb00"></span>Varies</div>
-            <div><span style="background-color: #EF4343"></span>Unverified</div>
-            <h3>The Circuit Trails</h3>
-            <div><span style="background-color: #8AC440"></span>Existing</div>
+    <main id="main-content-wrapper" class="flex-row flex-between">
+        <div id="sidebar">
+            <div id="sidebar-content">    
+            <div id="toggleWrapper">
+            <form class="sidebar-form sidebar-form-toggle">
+                <fieldset class="sidebar-fieldset">
+                    <legend class="bold-text">toggle base layers <a href="#tLayers-Modal" rel="modal:open" style="color: #000;"><i class="fa fa-info-circle" aria-hidden="true" data-toggle='tooltip' title='toggler layers'></i></a></legend>
+                    <ul>
+                    <li>
+                    <label>
+                        <input
+                        type="checkbox"
+                        id="nj_trails"
+                        name="layer"
+                        value="nj_trails"
+                        checked="checked"
+                        />
+                        NJ Trails
+                    </label>
+                    <p>Surface Material Type</p>
+                    <div><i class="fa fa-minus fa-sm legend-csg"></i>Crushed Stone/Gravel</div>
+                    <div><i class="fa fa-minus fa-sm legend-d"></i>Dirt</div>
+                    <div><i class="fa fa-minus fa-sm legend-g"></i>Grass</div>
+                    <div><i class="fa fa-minus fa-sm legend-p"></i>Paved</div>
+                    <div><i class="fa fa-minus fa-sm legend-sd"></i>Stone Dust</div>
+                    <div><i class="fa fa-minus fa-sm legend-s"></i>Sand/Sandy Soil</div>
+                    <div><i class="fa fa-minus fa-sm legend-v"></i>Varies</div>
+                    <div><i class="fa fa-minus fa-sm legend-u"></i>Unverified</div>
+             
+                    </li>
+                    <li>
+                    <label>
+                        <input
+                        type="checkbox"
+                        id="circuit_trails"
+                        name="layer"
+                        value="circuit_trails"
+                        checked="checked"
+                        />
+                        The Circuit Trails
+                    </label>
+                    <div><i class="fa fa-minus fa-sm legend-circuit"></i>Existing</div>
+                    </li>
+                    </ul>
+                  </fieldset>
+            </form>
+        
+            <form class="sidebar-form sidebar-form-toggle">
+                <fieldset class="sidebar-fieldset">
+                    <legend class="bold-text">toggle basemap</legend>
+                    <ul>
+                      <li>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="nearmap"
+                            name="layer"
+                            value="nearmap"
+                          />
+                          NearMap Imagery
+                        </label>
+                      </li>
+                    </ul>
+                  </fieldset>
+            </form>
+            </div> 
             </div>
-    <!--KK added-->
+        </div>
+        
+        <div id="map"></div>
+    </main>
+
 <!--KK added-->
         <div id="modal" role="dialog">
             <div id="modal-content">

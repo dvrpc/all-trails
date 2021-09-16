@@ -12,7 +12,12 @@ const sources = {
         'https://api.nearmap.com/tiles/v3/Vert/{z}/{x}/{y}.png?apikey=NGE1ODI2NDMtYjk1Yi00ZWIxLTg4YWQtM2U0NGFmOTNjMDgy'    
          ],
         'tileSize': 256
-    }
+    },
+    'circuit_trails': {
+        type:'geojson',
+        data:'https://arcgis.dvrpc.org/portal/rest/services/Transportation/CircuitTrails/FeatureServer/0/query?where=circuit+%3D+%27Existing%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson',
+        generateId: true //    
+    },
     // add more sources here
 };
 

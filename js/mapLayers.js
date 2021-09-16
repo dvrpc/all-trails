@@ -23,7 +23,17 @@ const layers = {
             'line-width': 0.25,
             'line-color': '#dee1e3'
         }
-    }
+    },
+    circuit_trails: {
+        'id':'circuit_trails',
+        'type':'line',
+        'source':'circuit_trails',
+        'layout':{'visibility': 'visible'},
+        'paint':{
+        'line-width':1.5,
+        'line-color':'#4fe314'
+        }
+    },  
     // add more layers here
 }
 
