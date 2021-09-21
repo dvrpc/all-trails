@@ -320,3 +320,6 @@ footer {
 .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
     border-left-color:rgba(138, 196, 64, 0.88);
     }
+    .mapboxgl-ctrl-logo {
+        display: none !important;
+        }
