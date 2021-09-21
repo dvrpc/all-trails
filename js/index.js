@@ -28,7 +28,7 @@ map.on('load', () => {
     map.addSource(
         'nj_trails',
         {'type':'geojson',
-        'data': 'https://arcgis.dvrpc.org/portal/rest/services/Transportation/All_Trails/FeatureServer/0/query?where=1=1&oursr=4326&outfields=*&f=geojson'
+        'data': 'https://arcgis.dvrpc.org/portal/rest/services/Transportation/All_Trails/FeatureServer/0/query?where=1=1&oursr=4326&returnDistinctValues=true&outfields=*&f=geojson'
     });
     map.addLayer({
         'id':'nj_trails',
@@ -52,7 +52,7 @@ map.on('load', () => {
                 ["==", ["get","surface"], "SD"],
                 "#67ABD1",
                 ["==", ["get","surface"], "V"],
-               "#ff3b3b",
+               "#ffdb00",
                 "#EF4343"],
             'line-opacity':1}
     });
@@ -106,12 +106,25 @@ map.on('click', 'nj_trails', function (e) {
 
     if (e.features[0].properties["owner"] === "null"){ var owner_txt = "" ;}
     else {var owner_txt="<br><b>Owner: </b>" + e.features[0].properties["owner"];}
+    
+    let lookup = {
+        "S": "<br/><b>Surface Matrial:</b>Sand",
+        "CSG": "<br/><b>Surface Matrial:</b>Crushed Stone/Gravel",
+        "D": "<br/><b>Surface Matrial:</b>Dirt",
+        "G":"<br/><b>Surface Matrial:</b>Grass",
+        "P":"<br/><b>Surface Matrial:</b>Paved",
+        "SD":"<br/><b>Surface Matrial:</b>Stone Dust",
+        "Unverified":"<br/><b>Surface Matrial:</b>Unverified",
+        "V":"<br/><b>Surface Matrial:</b>Varies"
+    }
+    let surface = lookup[e.features[0].properties["surface"]];
 
     new mapboxgl.Popup()
     .setLngLat(e.lngLat)
     .setHTML('<b>Trail Name: </b>' + e.features[0].properties["name"]
-     +  mu_status
-     + owner_txt)
+    +  surface
+    +  mu_status
+    +  owner_txt)
     .addTo(map);
     });
 
