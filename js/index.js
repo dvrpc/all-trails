@@ -108,14 +108,14 @@ map.on('click', 'nj_trails', function (e) {
     else {var owner_txt="<br><b>Owner: </b>" + e.features[0].properties["owner"];}
     
     let lookup = {
-        "S": "<br/><b>Surface Matrial:</b>Sand",
-        "CSG": "<br/><b>Surface Matrial:</b>Crushed Stone/Gravel",
-        "D": "<br/><b>Surface Matrial:</b>Dirt",
-        "G":"<br/><b>Surface Matrial:</b>Grass",
-        "P":"<br/><b>Surface Matrial:</b>Paved",
-        "SD":"<br/><b>Surface Matrial:</b>Stone Dust",
-        "Unverified":"<br/><b>Surface Matrial:</b>Unverified",
-        "V":"<br/><b>Surface Matrial:</b>Varies"
+        "S": "<br/><b>Surface Material:</b>Sand",
+        "CSG": "<br/><b>Surface Material:</b>Crushed Stone/Gravel",
+        "D": "<br/><b>Surface Material:</b>Dirt",
+        "G":"<br/><b>Surface Material:</b>Grass",
+        "P":"<br/><b>Surface Material:</b>Paved",
+        "SD":"<br/><b>Surface Material:</b>Stone Dust",
+        "Unverified":"<br/><b>Surface Material:</b>Unverified",
+        "V":"<br/><b>Surface Material:</b>Varies"
     }
     let surface = lookup[e.features[0].properties["surface"]];
 
