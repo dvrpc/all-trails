@@ -8,6 +8,9 @@ const modal = document.getElementById('modal')
 const modalToggle = document.getElementById('modal-toggle')
 const closeModal = document.getElementById('close-modal')
 // get additional elements here (forms, etc)
+$(document).ready(function(){
+     $("#about").modal('show');
+});
 // toggle base and basemap layers 
 const toggleLayerForms = Array.from(
     document.querySelectorAll(".sidebar-form-toggle")
@@ -126,8 +129,8 @@ map.on('mouseleave', 'nj_trails', function () {
     map.on('click', 'circuit_trails', function (e) {
         new mapboxgl.Popup()
         .setLngLat(e.lngLat)
-        .setHTML('<b>Trail Name: </b>' + e.features[0].properties["name"]
-         + '<br>' + "<b>Status: </b>" + e.features[0].properties["circuit"])
+        .setHTML('<b>Trail Name: </b>' + e.features[0].properties["name"])
+        //  + '<br>' + "<b>Status: </b>" + e.features[0].properties["circuit"])
         .addTo(map);
         });
     // Change the cursor to a pointer when the mouse is over the trails layer.
@@ -140,4 +143,4 @@ map.on('mouseleave', 'nj_trails', function () {
         map.getCanvas().style.cursor = '';
         });
 // modal
-handleModal(modal, modalToggle, closeModal)
+// handleModal(modal, modalToggle, closeModal)

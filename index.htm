@@ -39,19 +39,18 @@
             <div class="flex-row">
                 <a href="https://www.dvrpc.org/" class="nav-links"><img src="./img/DVRPC-logo.png" alt="DVRPC logo" id="dvrpc-logo" class="nav-logos" /></a>
                 <span class="nav-vr">|</span>
+                <div style="font-size: x-large;font-weight:bold;">New Jersey Trails Inventory</div>
                 <!-- 
                 <img src="./imgs/project-logo.png" alt="project logo" class="nav-logos">
                 <span class="nav-vr">|</span>
                 -->
-                <button id="modal-toggle" class="nav-btn nav-links">about</button>
+                <!-- <button id="modal-toggle" class="nav-btn nav-links">about</button> -->
+                <div>
+                    <a class="btn about-btn" href="#about" rel="modal:open">about</a>
+                </div>
             </div>
             <!--KK added-->
-            <div style="font-size: x-large;font-weight:bold;">New Jersey Trails Inventory</div>
-            <!--KK added-->
-
-            <div>
-                <a href="https://www.dvrpc.org/webmaps/thecircuit/" class="nav-links" target="_new">The Circuit Trails</a>
-            </div>
+        
         </nav>
     <main id="main-content-wrapper" class="flex-row flex-between">
         <div id="sidebar">
@@ -59,7 +58,7 @@
             <div id="toggleWrapper">
             <form class="sidebar-form sidebar-form-toggle">
                 <fieldset class="sidebar-fieldset">
-                    <legend class="bold-text">toggle base layers <a href="#tLayers-Modal" rel="modal:open" style="color: #000;"><i class="fa fa-info-circle" aria-hidden="true" data-toggle='tooltip' title='toggler layers'></i></a></legend>
+                    <legend class="bold-text">toggle base layers <a href="#Legend-Modal" rel="modal:open" style="color: #000;"><i class="fa fa-info-circle" aria-hidden="true" data-toggle='tooltip' title='toggler layers'></i></a></legend>
                     <ul>
                     <li>
                     <label>
@@ -121,22 +120,23 @@
             </div> 
             </div>
             <footer class="flex-column">
-                <p>NJ Trails Inventory&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#disclaimer" aria-label="disclaimer" rel="modal:open" style="color:white">&nbsp;&nbsp;Disclaimer</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.dvrpc.org/policies/" target="_new" class="hp-link" aria-label="policies" style="color: #fff !important"> Policies</a></p>    
+                <p>NJ Trails Inventory&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#about" aria-label="disclaimer" rel="modal:open" style="color:white">&nbsp;&nbsp;Disclaimer</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.dvrpc.org/policies/" target="_new" class="hp-link" aria-label="policies" style="color: #fff !important"> Policies</a></p>    
             </footer>
         </div>
         
         <div id="map"></div>
     </main>
 
-<!--KK added-->
-        <div id="modal" role="dialog">
-            <div id="modal-content">
-                <span id="close-modal">&times;</span>
-                <div class="modal-content-subheader">
-                <h4>New Jersey Trails Inventory</h4>
+<!--CRP added-->
+   <!-- Legend Modal -->
+   <div class="modal" id="about">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h3>New Jersey Trails Inventory</h3>
             </div>
-                <div class="modal-body">
-        
+            <div class="modal-body">
+               
                 <p> <span>The New Jersey Trails Inventory was created in order to capture
                     all off-road, recreational trail facilities in DVRPC's New Jersey Counties,
                     including those outside The Circuit. The inventory is intended for planning
@@ -147,6 +147,7 @@
                     <br/>
                     <br/>
                     <a class="one" href="https://www.dvrpc.org/trails/RegionalTrailsProgram/" target="_new">Click Here</a>  for information about the Regional Trails Program at DVRPC.
+                    <br><br> <a class="one" href="https://www.dvrpc.org/webmaps/thecircuit/" target="_new">The Circuit Trails</a> are Greater Philadelphia’s multi–use trail network connecting people to jobs, communities, parks, and waterways. Over 300 miles of this planned 800 mile network are complete.
                 </p></span>
             
                 <p>
@@ -161,20 +162,52 @@
         
                      <hr style="color:rgba(99, 110, 117, 0.6);"> 
                      <br/>
-            <div style="background-color:rgba(90,127,151,0.75);border-radius: 10px;padding:10px;">
-             
-                <p>
-                   <i>This web page is a public resource of general information. The Delaware Valley Regional Planning Commission (DVRPC) makes no warranty, 
-                representation, or guarantee as to the content, sequence, accuracy, timeliness, or completeness of any of the spatial data or database 
-                information provided herein. DVRPC and partner state, local, and other agencies shall assume no liability for errors, omissions, or 
-                inaccuracies in the information provided regardless of how caused; or any decision made or action taken or not taken by any person relying 
-                on any information or data furnished within.</i></p><br/>
-                <i><a class="one" href="https://www.dvrpc.org/Policies/" target="_new">Click Here</a>  for more information about DVRPC Policies.</i>
-        </div>
-    </div>
-</div>
-    </div>
-<!--KK added-->
+                <div style="background-color:rgba(90,127,151,0.75);border-radius: 10px;padding:10px;">
+                
+                    <p>
+                    <i>This web page is a public resource of general information. The Delaware Valley Regional Planning Commission (DVRPC) makes no warranty, 
+                    representation, or guarantee as to the content, sequence, accuracy, timeliness, or completeness of any of the spatial data or database 
+                    information provided herein. DVRPC and partner state, local, and other agencies shall assume no liability for errors, omissions, or 
+                    inaccuracies in the information provided regardless of how caused; or any decision made or action taken or not taken by any person relying 
+                    on any information or data furnished within.</i></p><br/>
+                    <i><a class="one" href="https://www.dvrpc.org/Policies/" target="_new">Click Here</a>  for more information about DVRPC Policies.</i>
+                </div>
+            </div><!-- /.modal-body -->
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal fade--> 
+   <!-- Legend Modal -->
+   <div class="modal" id="Legend-Modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h3>Base Layers</h3>
+            </div>
+            <div class="modal-body">
+                <p><b>NJ All Trails</b> - Description coming soon.
+                    <p style="color:grey"><i>Source: DVRPC.</i></p>
+                </p>
+                <hr>
+                <br>
+                <p><B>The Circuit Trails</B> - Only the existing Circuit Trails are being displayed. The Circuit Trails are Greater Philadelphia’s multi–use trail network connecting people to jobs, communities, parks, and waterways. Over 300 miles of this planned 800 mile network are complete.
+                    <p style="color:grey"><i>Source: DVRPC.</i></p>
+                </p>
+                <hr>
+            </div><!-- /.modal-body -->
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal fade-->   
+
+    <!-- jQuery Modal -->
+      <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script> -->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+       
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script> -->
+
+      <!-- jQuery Modal -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
         <script src="https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js"></script>
     </body>
 </html>

@@ -14,6 +14,16 @@ const layers = {
             "Yes"
         ]
     },
+    cnty_NJ: {
+        "id": "cnty_NJ",
+        "type": "line",
+        "source": "cnty_NJ",
+         'layout':{'visibility': 'visible'},
+        "paint": {
+            'line-width': 2.5,
+            'line-color': '#616162'
+        }
+    },
     muniOutline: {
         "id": "municipality-outline",
         "type": "line",

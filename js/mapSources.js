@@ -18,6 +18,10 @@ const sources = {
         data:'https://arcgis.dvrpc.org/portal/rest/services/Transportation/CircuitTrails/FeatureServer/0/query?where=circuit+%3D+%27Existing%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson',
         generateId: true //    
     },
+    'cnty_NJ': {
+    type: 'geojson',
+    data:'https://arcgis.dvrpc.org/portal/rest/services/Boundaries/CountyBoundaries/FeatureServer/0/query?where=co_name+%3D+%27Burlington%27+or+co_name+%3D+%27Camden%27+or+co_name+%3D+%27Gloucester%27+or+co_name+%3D+%27Mercer%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson'
+    }
     // add more sources here
 };
 
