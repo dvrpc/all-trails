@@ -38,7 +38,7 @@
         <nav class="flex-row flex-between">
             <div class="flex-row">
                 <a href="https://www.dvrpc.org/" class="nav-links"><img src="./img/DVRPC-logo.png" alt="DVRPC logo" id="dvrpc-logo" class="nav-logos" /></a>
-                <span class="nav-vr">|</span>
+                <span class="vertical"></span>
                 <div style="font-size: x-large;font-weight:bold;">New Jersey Trails Inventory</div>
                 <!-- 
                 <img src="./imgs/project-logo.png" alt="project logo" class="nav-logos">
@@ -81,7 +81,7 @@
                     <div><i class="fa fa-minus fa-sm legend-v"></i>Varies</div>
                     <div><i class="fa fa-minus fa-sm legend-u"></i>Unverified</div>
                     </li>
-                    <li>
+                    <li style="margin-top: 10px;">
                     <label>
                         <input
                         type="checkbox"
@@ -110,7 +110,7 @@
                             name="layer"
                             value="nearmap"
                           />
-                          NearMap Imagery
+                          Aerial Imagery
                         </label>
                       </li>
                     </ul>
@@ -119,7 +119,7 @@
             </div> 
             </div>
             <footer class="flex-column">
-                <p>NJ Trails Inventory&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#about" aria-label="disclaimer" rel="modal:open" style="color:white">&nbsp;&nbsp;Disclaimer</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.dvrpc.org/policies/" target="_new" class="hp-link" aria-label="policies" style="color: #fff !important"> Policies</a></p>    
+                <p>NJ Trails Inventory&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#disclaimer" aria-label="disclaimer" rel="modal:open" style="color:white">Disclaimer</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.dvrpc.org/policies/" target="_new" class="hp-link" aria-label="policies" style="color: #fff !important">Policies</a></p>    
             </footer>
         </div>
         
@@ -127,7 +127,7 @@
     </main>
 
 <!--CRP added-->
-   <!-- Legend Modal -->
+   <!-- About Modal -->
    <div class="modal" id="about">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -135,7 +135,6 @@
             <h3>New Jersey Trails Inventory</h3>
             </div>
             <div class="modal-body">
-               
                 <p> <span>The New Jersey Trails Inventory was created in order to capture
                     all off-road, recreational trail facilities in DVRPC's New Jersey Counties,
                     including those outside The Circuit. The inventory is intended for planning
@@ -160,16 +159,34 @@
         
                      <hr style="color:rgba(99, 110, 117, 0.6);"> 
                      <br/>
-                <div style="background-color:rgba(90,127,151,0.75);border-radius: 10px;padding:10px;">
-                
-                    <p>
-                    <i>This web page is a public resource of general information. The Delaware Valley Regional Planning Commission (DVRPC) makes no warranty, 
+                <!-- <div style="background-color:#b9def0;border-radius: 10px;padding:10px;">
+                    <img src="https://www.dvrpc.org/img/homepage/dvrpclogo70px.png" alt="DVRPC logo" class="dvrpc_full_logo"/>
+                    <p style="margin: -5px 0px 0px 45px;display:block"><span>
+                    This web page is a public resource of general information. The Delaware Valley Regional Planning Commission (DVRPC) makes no warranty, 
                     representation, or guarantee as to the content, sequence, accuracy, timeliness, or completeness of any of the spatial data or database 
                     information provided herein. DVRPC and partner state, local, and other agencies shall assume no liability for errors, omissions, or 
                     inaccuracies in the information provided regardless of how caused; or any decision made or action taken or not taken by any person relying 
-                    on any information or data furnished within.</i></p><br/>
+                    on any information or data furnished within.</span></p><br/>
                     <i><a class="one" href="https://www.dvrpc.org/Policies/" target="_new">Click Here</a>  for more information about DVRPC Policies.</i>
-                </div>
+                </div> -->
+            </div><!-- /.modal-body -->
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal fade--> 
+   <!-- Disclaimer Modal -->
+   <div class="modal" id="disclaimer">
+    <div class="modal-dialog">
+        <div class="modal-content">
+           
+            <div class="modal-body">
+                    <img src="https://www.dvrpc.org/img/homepage/dvrpclogo70px.png" alt="DVRPC logo" class="dvrpc_full_logo"/>
+                    <p style="margin: -5px 0px 0px 45px;display:block"><span>
+                    This web page is a public resource of general information. The Delaware Valley Regional Planning Commission (DVRPC) makes no warranty, 
+                    representation, or guarantee as to the content, sequence, accuracy, timeliness, or completeness of any of the spatial data or database 
+                    information provided herein. DVRPC and partner state, local, and other agencies shall assume no liability for errors, omissions, or 
+                    inaccuracies in the information provided regardless of how caused; or any decision made or action taken or not taken by any person relying 
+                    on any information or data furnished within.</span></p>
+                    <!-- <br/><i><a class="one" href="https://www.dvrpc.org/Policies/" target="_new">Click Here</a>  for more information about DVRPC Policies.</i> -->
             </div><!-- /.modal-body -->
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -182,7 +199,7 @@
             <h3>Base Layers</h3>
             </div>
             <div class="modal-body">
-                <p><br><b>NJ All Trails</b> - Description coming soon.
+                <p><b>NJ All Trails</b> - Description coming soon.
                     <p style="color:grey"><i>Source: DVRPC.</i></p>
                 </p>
                 <hr>
@@ -190,6 +207,7 @@
                 <p><B>The Circuit Trails</B> - Only the existing Circuit Trails are being displayed. The Circuit Trails are Greater Philadelphia’s multi–use trail network connecting people to jobs, communities, parks, and waterways. Over 300 miles of this planned 800 mile network are complete.
                     <p style="color:grey"><i>Source: DVRPC.</i></p>
                 </p>
+                <p>Aerial Imagery: ©Nearmap</p>
                 <hr>
             </div><!-- /.modal-body -->
         </div><!-- /.modal-content -->

@@ -118,6 +118,11 @@ nav {
     display: block;
     width: 75px;
 }
+.vertical {
+    border-left: 2px solid white;
+    height: 20px;
+    margin: 5px;
+}
 .btn {
     display: inline-block;
     margin-bottom: 0;
@@ -149,6 +154,10 @@ nav {
 }
 .blocker {
     background-color: rgba(0,0,0,0.2) !important;
+}
+.dvrpc_full_logo {
+    margin: 10px 15px 6px 5px;
+    float: left;
 }
 /* END Navbar */
 
