@@ -38,7 +38,7 @@ h4{
 .flex-column {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
 }
 .flex-between {
     justify-content: space-between;
@@ -189,7 +189,7 @@ nav {
     min-height: calc(90% - 40px);
 }
 #toggleWrapper {
-    margin: 5px 0px 5px 10px;
+    margin: 5px 10px 5px 10px;
     border-radius: 4px;
     border-color: #dadada;
     background-color: #fff; 
@@ -201,6 +201,7 @@ nav {
 }
 .sidebar-form {
     margin: var(--wrapper-padding) auto;
+    width: 40vh;
 }
 .sidebar-fieldset {
     background: white;

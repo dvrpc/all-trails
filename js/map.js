@@ -7,6 +7,7 @@ const initMap = () => {
         style: 'mapbox://styles/mapbox/light-v10', 
      //   style: 'mapbox://styles/mapbox/satellite-streets-v11',
         center: [-74.777760,39.982220],
+        clickTolerance:5,
         zoom: 8.5
   })
 }
