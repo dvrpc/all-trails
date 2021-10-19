@@ -87,6 +87,7 @@ map.on('load', () => {
     'id': 'nearmap',
     'type': 'raster',
     'source': 'nearmap',
+    'maxzoom':20,
     'paint': {},
     "layout": {"visibility":"none"}
     },
@@ -94,6 +95,16 @@ map.on('load', () => {
     );
 
 });
+
+map.on('zoom', () => {
+    if (map.getZoom() > 20) {
+    // stateLegendEl.style.display = 'none';
+    // countyLegendEl.style.display = 'block';
+    } else {
+    // stateLegendEl.style.display = 'block';
+    // countyLegendEl.style.display = 'none';
+    }
+    });
 
 // When a click event occurs on a feature in the states layer, open a popup at the
 // location of the click, with description HTML from its properties.
