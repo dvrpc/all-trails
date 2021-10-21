@@ -36,24 +36,32 @@ map.on('load', () => {
         'source':'nj_trails',
         'layout':{'visibility': 'visible'},
         'paint':{
-            'line-width':3,
-            'line-color': [
-                "case",
-                ["==", ["get","surface"], "S"],
-               "#D8BC96",
-                ["==", ["get","surface"], "CSG"],
-                "#0078AE",
-                ["==", ["get","surface"], "D"],
-                "#fa751f",
-                ["==", ["get","surface"], "G"],
-                "#349000",
-                ["==", ["get","surface"], "P"],
-                "#D882C8",
-                ["==", ["get","surface"], "SD"],
-                "#67ABD1",
-                ["==", ["get","surface"], "V"],
-               "#ffdb00",
-                "#EF4343"],
+            // 'line-width':3,
+            'line-width': [ 'case',
+            ['boolean', ['feature-state', 'hover'], false],
+             6, 3
+            ],
+            'line-color': ['case',
+                ['boolean', ['feature-state', 'hover'], false],
+                '#FFF01F',
+                ['match',['get', 'surface'],
+                    'S',
+                    '#D8BC96',
+                    'CSG',
+                    '#0078AE',
+                    'D',
+                    '#fa751f',
+                    'G',
+                    '#349000',
+                    'P',
+                    '#D882C8',
+                    'SD',
+                    '#67ABD1',
+                    'V',
+                    '#ffdb00',
+                    /* other */ '#FFF01F'
+                ]
+                ],
             'line-opacity':1}
     });
     // Grey Mask for PA Counties
@@ -104,8 +112,8 @@ map.on('zoom', () => {
     // stateLegendEl.style.display = 'block';
     // countyLegendEl.style.display = 'none';
     }
-    });
-
+});
+var trailID = null;
 // When a click event occurs on a feature in the states layer, open a popup at the
 // location of the click, with description HTML from its properties.
 map.on('click', 'nj_trails', function (e) {
@@ -140,13 +148,46 @@ map.on('click', 'nj_trails', function (e) {
     });
 
 // Change the cursor to a pointer when the mouse is over the trails layer.
-map.on('mouseenter', 'nj_trails', function () {
+map.on('mouseenter', 'nj_trails', function (e) {
     map.getCanvas().style.cursor = 'pointer';
+ // When the mouse moves over the earthquakes-viz layer, update the
+            // feature state for the feature under the mouse
+        if (trailID) {
+            map.removeFeatureState({
+                source: 'nj_trails',
+                id: trailID
+            });
+            }
+
+            trailID = e.features[0].id;
+
+            map.setFeatureState(
+            {
+                source: 'nj_trails',
+                id: trailID
+            },
+            {
+                hover: true
+            }
+            );
+        
     });
 
 // Change it back to default when it leaves.
-map.on('mouseleave', 'nj_trails', function () {
+map.on('mouseleave', 'nj_trails', function (e) {
     map.getCanvas().style.cursor = '';
+    if (trailID) {
+        map.setFeatureState(
+          {
+            source: 'nj_trails',
+            id: trailID
+          },
+          {
+            hover: false
+          }
+        );
+      }
+      trailID = null;
     });
 
 //Click Circuit Trails
@@ -158,12 +199,12 @@ map.on('mouseleave', 'nj_trails', function () {
         .addTo(map);
         });
     // Change the cursor to a pointer when the mouse is over the trails layer.
-    map.on('mouseenter', 'circuit_trails', function () {
+    map.on('mouseenter', 'circuit_trails', function (e) {
         map.getCanvas().style.cursor = 'pointer';
         });
     
     // Change it back to default when it leaves.
-    map.on('mouseleave', 'circuit_trails', function () {
+    map.on('mouseleave', 'circuit_trails', function (e) {
         map.getCanvas().style.cursor = '';
         });
 // modal
