@@ -192,7 +192,7 @@ nav {
     color: #000000;
     background-color: var(--theme-dvrpc2);
     border-radius: 3px;
-    z-index: 1001;         
+    z-index: 1;         
   }
 /* END Map */
 #sidebar {
