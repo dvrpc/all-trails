@@ -150,6 +150,10 @@ map.on('click', 'nj_trails', function (e) {
 // Change the cursor to a pointer when the mouse is over the trails layer.
 map.on('mouseenter', 'nj_trails', function (e) {
     map.getCanvas().style.cursor = 'pointer';
+
+    var content = e.features[0].properties["name"];
+    document.getElementById('shield').innerHTML  ='';
+    document.getElementById('mag').innerHTML = content;
  // When the mouse moves over the earthquakes-viz layer, update the
             // feature state for the feature under the mouse
         if (trailID) {
@@ -175,6 +179,8 @@ map.on('mouseenter', 'nj_trails', function (e) {
 
 // Change it back to default when it leaves.
 map.on('mouseleave', 'nj_trails', function (e) {
+    document.getElementById('shield').innerHTML  ='Hover over an incident location for more information';
+    document.getElementById('mag').innerHTML = "";
     map.getCanvas().style.cursor = '';
     if (trailID) {
         map.setFeatureState(
