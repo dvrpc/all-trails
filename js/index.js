@@ -34,13 +34,8 @@ map.on('load', () => {
         'id':'nj_trails',
         'type':'line',
         'source':'nj_trails',
-        'layout':{'visibility': 'visible'},
         'paint':{
-            // 'line-width':3,
-
-
-            'line-width': 
-
+            'line-width':
             ['step', ['zoom'],
             ['case',['boolean', ['feature-state', 'hover'], false],5,2],
             10,
@@ -48,9 +43,6 @@ map.on('load', () => {
             13,
             ['case',['boolean', ['feature-state', 'hover'], false],7,4]
             ],
-
-
-
             'line-color': ['case',
                 ['boolean', ['feature-state', 'hover'], false],
                 '#FFF01F',
@@ -72,7 +64,13 @@ map.on('load', () => {
                     /* other */ '#FFF01F'
                 ]
                 ],
-            'line-opacity':1}
+            'line-opacity':1},
+            'layout':{
+                // 'text-field': ['get', 'name'],
+                // 'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
+                // 'text-radial-offset': 0.5,
+                // 'text-justify': 'auto',
+                'visibility': 'visible'}
     });
     // Grey Mask for PA Counties
     map.addLayer({
@@ -150,7 +148,7 @@ map.on('click', 'nj_trails', function (e) {
 
     new mapboxgl.Popup()
     .setLngLat(e.lngLat)
-    .setHTML('<b>Trail Name: </b>' + e.features[0].properties["name"]
+    .setHTML('<b>NJ Trail Name: </b>' + e.features[0].properties["name"]
     +  surface
     +  mu_status
     +  owner_txt)
@@ -210,7 +208,7 @@ map.on('mouseleave', 'nj_trails', function (e) {
     map.on('click', 'circuit_trails', function (e) {
         new mapboxgl.Popup()
         .setLngLat(e.lngLat)
-        .setHTML('<img src="./img/circuit.png" alt="circuit logo" id="circuit-logo" class="nav-logos" /><b>Trail Name: </b>' + e.features[0].properties["name"]+'<br/><b>Multi-Use:</b> Yes')
+        .setHTML('<b>Circuit Trail Name: </b>' + e.features[0].properties["name"]+'<br/><b>Multi-Use:</b> Yes')
         //  + '<br>' + "<b>Status: </b>" + e.features[0].properties["circuit"])
         .addTo(map);
         });
