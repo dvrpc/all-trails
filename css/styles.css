@@ -123,6 +123,11 @@ nav {
     display: block;
     width: 75px;
 }
+#circuit-logo {
+    display: block;
+    width: 75px;
+    background-color: white;
+}
 .vertical {
     border-left: 2px solid white;
     height: 20px;

@@ -37,20 +37,10 @@ map.on('load', () => {
         'layout':{'visibility': 'visible'},
         'paint':{
             // 'line-width':3,
-
-
-            'line-width': 
-
-            ['step', ['zoom'],
-            ['case',['boolean', ['feature-state', 'hover'], false],5,2],
-            10,
-            ['case',['boolean', ['feature-state', 'hover'], false],6,3],
-            13,
-            ['case',['boolean', ['feature-state', 'hover'], false],7,4]
+            'line-width': [ 'case',
+            ['boolean', ['feature-state', 'hover'], false],
+             6, 3
             ],
-
-
-
             'line-color': ['case',
                 ['boolean', ['feature-state', 'hover'], false],
                 '#FFF01F',

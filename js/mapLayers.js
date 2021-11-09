@@ -40,7 +40,14 @@ const layers = {
         'source':'circuit_trails',
         'layout':{'visibility': 'visible'},
         'paint':{
-        'line-width':2,
+        'line-width':  {
+            "base": 9,
+            "stops": [
+              [10, 2],
+              [12, 3],
+              [13, 4]
+            ] 
+        },
         'line-color':'#4fe314'
         }
     },  
