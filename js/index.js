@@ -208,7 +208,9 @@ map.on('mouseleave', 'nj_trails', function (e) {
     map.on('click', 'circuit_trails', function (e) {
         new mapboxgl.Popup()
         .setLngLat(e.lngLat)
-        .setHTML('<b>Circuit Trail Name: </b>' + e.features[0].properties["name"]+'<br/><b>Multi-Use:</b> Yes')
+        .setHTML('<b>Circuit Trail Name: </b>' + e.features[0].properties["name"]+
+        '<br/><b>Surface Material: </b>'+ e.features[0].properties["surface"] +
+        '<br/><b>Multi-Use:</b> Yes')
         //  + '<br>' + "<b>Status: </b>" + e.features[0].properties["circuit"])
         .addTo(map);
         });
