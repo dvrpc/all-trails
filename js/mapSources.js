@@ -13,6 +13,10 @@ const sources = {
          ],
         'tileSize': 256
     },
+    // 'labels': {
+    //     type: 'vector',
+    //     url: 'mapbox://styles/mapbox/light-v10'
+    // },
     'circuit_trails': {
         type:'geojson',
         data:'https://arcgis.dvrpc.org/portal/rest/services/Transportation/CircuitTrails/FeatureServer/0/query?where=circuit+%3D+%27Existing%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson',

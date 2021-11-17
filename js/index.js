@@ -110,6 +110,22 @@ map.on('load', () => {
     'road-street'
     );
 
+    // map.addLayer(
+    //     {
+    //     'id': 'place-city-sm',
+    //     'type': 'vector',
+    //     "source": {
+    //         type: 'vector',
+    //         url: 'mapbox://styles/mapbox/light-v10'
+    //     },
+    //     "source-layer": "place-city-sm",
+    //     'maxzoom':20,
+    //     'paint': {},
+    //     "layout": {"visibility":"none"}
+    //     },
+    //     'road-street'
+    //     );
+
 });
 
 map.on('zoom', () => {
