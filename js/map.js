@@ -1,10 +1,13 @@
 //Changed accessToken to reflect keriklinges account
-mapboxgl.accessToken = 'pk.eyJ1Ijoia2VyaWtsaW5nZXMiLCJhIjoiY2s4YnYwc3AxMGN0MjNra2F0a3k0cWNrayJ9.ueaghC1N7GY5FI9ArXr8wg'
-/* Old token: pk.eyJ1IjoibW1vbHRhIiwiYSI6ImNqZDBkMDZhYjJ6YzczNHJ4cno5eTcydnMifQ.RJNJ7s7hBfrJITOBZBdcOA*/
+mapboxgl.accessToken = 'pk.eyJ1IjoiY3J2YW5wb2xsYXJkIiwiYSI6Ii00ZklVS28ifQ.Ht4KwAM3ZUjo1dT2Erskgg'
+
 const initMap = () => {
     return new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/light-v10', 
+        // style: 'mapbox://styles/mapbox/light-v10', 
+        style:'mapbox://styles/crvanpollard/ck5fpyqti0v971itf7edp2eyd',
+        // style:'css/grey/grey.json',
+        // style:'css/sat-labels/sat-labels.json',
         clickTolerance:5,
         // style: 'mapbox://styles/mapbox/satellite-streets-v11',
         // center: [-74.777760,39.982220],

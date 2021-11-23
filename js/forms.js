@@ -8,8 +8,8 @@ const toggleLayers = (form, map) => {
     form.onchange = e => {
         const layer = e.target.value
         const visibility = e.target.checked ? 'visible' : 'none'
-        
         map.setLayoutProperty(layer, 'visibility', visibility)
+        // map.setStyle('css/sat-labels/sat-labels.json');
     }
 }
 
