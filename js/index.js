@@ -95,8 +95,8 @@ map.on('load', () => {
     'type': 'geojson',
         'data':"https://arcgis.dvrpc.org/portal/rest/services/Boundaries/CountyBoundaries/FeatureServer/0/query?where=co_name+%3D+%27Bucks%27+or+co_name+%3D+%27Chester%27+or+co_name+%3D+%27Delaware%27+or+co_name+%3D+%27Montgomery%27+or+co_name+%3D+%27Philadelphia%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson"
     });
-
-    // add map events here (click, mousemove, etc)
+  
+   // add map events here (click, mousemove, etc)
    // Add NearMap Imagery, it is added here do to neediung to place layer below road-street layer
    map.addLayer(
     {
@@ -107,25 +107,8 @@ map.on('load', () => {
     'paint': {},
     "layout": {"visibility":"none"}
     },
-    'road-street'
+    'road-label'
     );
-
-    // map.addLayer(
-    //     {
-    //     'id': 'place-city-sm',
-    //     'type': 'vector',
-    //     "source": {
-    //         type: 'vector',
-    //         url: 'mapbox://styles/mapbox/light-v10'
-    //     },
-    //     "source-layer": "place-city-sm",
-    //     'maxzoom':20,
-    //     'paint': {},
-    //     "layout": {"visibility":"none"}
-    //     },
-    //     'road-street'
-    //     );
-
 });
 
 map.on('zoom', () => {
@@ -147,7 +130,7 @@ map.on('click', 'nj_trails', function (e) {
     else if (e.features[0].properties["multi_use"] === "No"){ var mu_status = "<br/><b>Multi-Use:</b> No"   ;}
     else { var mu_status = "";}
 
-    if (e.features[0].properties["owner"] === "null"){ var owner_txt = "" ;}
+    if (e.features[0].properties["owner"] === "null"){ var owner_txt = "<br><b>Owner:</b> Unknown" ;}
     else {var owner_txt="<br><b>Owner: </b>" + e.features[0].properties["owner"];}
     
     let lookup = {

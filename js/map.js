@@ -5,13 +5,13 @@ const initMap = () => {
     return new mapboxgl.Map({
         container: 'map',
         // style: 'mapbox://styles/mapbox/light-v10', 
-        style:'mapbox://styles/crvanpollard/ck5fpyqti0v971itf7edp2eyd',
-        // style:'css/grey/grey.json',
-        // style:'css/sat-labels/sat-labels.json',
+        //   Plain Grey
+           style:'css/grey/grey.json',
+        // style:'mapbox://styles/crvanpollard/ck5fpyqti0v971itf7edp2eyd',
         clickTolerance:5,
-        // style: 'mapbox://styles/mapbox/satellite-streets-v11',
         // center: [-74.777760,39.982220],
         // zoom: 8.5
+        minZoom: 7, 
         bounds: [[-75.467, 39.509],[-74.467, 40.437]]
   })
 }

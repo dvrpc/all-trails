@@ -1,19 +1,4 @@
 const layers = {
-    // countyOutline: {
-    //     "id": "county-outline",
-    //     "type": "line",
-    //     "source": "boundaries",
-    //     "source-layer": "county",
-    //     "paint": {
-    //         'line-width': 2.5,
-    //         'line-color': '#f3f4f5'
-    //     },
-    //     "filter": [
-    //         "==",
-    //         "dvrpc",
-    //         "Yes"
-    //     ]
-    // },
     countyOutline: {
         "id": "county-outline",
         "type": "line",
