@@ -9,10 +9,11 @@ const initMap = () => {
            style:'css/grey/grey.json',
         // style:'mapbox://styles/crvanpollard/ck5fpyqti0v971itf7edp2eyd',
         clickTolerance:5,
-        // center: [-74.777760,39.982220],
-        // zoom: 8.5
+        center: [-74.859467,40.053899],
+        zoom: 8.5,
         minZoom: 7, 
-        bounds: [[-75.467, 39.509],[-74.467, 40.437]]
+        // bounds: [[-75.467, 39.509],[-74.467, 40.437]]
+    //    bounds: [[ -76.025391,39.255651],[-73.490295,41.033787]]
   })
 }
 
