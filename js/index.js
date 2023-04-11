@@ -131,6 +131,7 @@ map.on('click', 'nj_trails', function (e) {
     else { var mu_status = "";}
 
     if (e.features[0].properties["owner"] === "null"){ var owner_txt = "<br><b>Owner:</b> Unknown" ;}
+    else if (e.features[0].properties["owner"] === "0"){ var owner_txt = "<br><b>Owner:</b> Unknown" ;}
     else {var owner_txt="<br><b>Owner: </b>" + e.features[0].properties["owner"];}
     
     let lookup = {
