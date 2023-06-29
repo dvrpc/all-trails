@@ -88,7 +88,7 @@ map.on('load', () => {
     },
     "filter": 
     //["==","dvrpc","Yes"]
-    ["all",["!=","name","Bucks"],["!=","name","Burlington"],["!=","name","Camden"],["!=","name","Mercer"],["!=","name","Gloucester"]]
+    ["all",["!=","name","Bucks"],["!=","name","Delaware"],["!=","name","Burlington"],["!=","name","Camden"],["!=","name","Mercer"],["!=","name","Gloucester"]]
     });
 
     map.addSource('cnty', {
@@ -148,7 +148,7 @@ map.on('click', 'nj_trails', function (e) {
 
     new mapboxgl.Popup()
     .setLngLat(e.lngLat)
-    .setHTML('<b>NJ Trail Name: </b>' + e.features[0].properties["name"]
+    .setHTML('<b>Trail Name: </b>' + e.features[0].properties["name"]
     +  surface
     +  mu_status
     +  owner_txt)
