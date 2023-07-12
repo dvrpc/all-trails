@@ -73,28 +73,34 @@ map.on('load', () => {
                 'visibility': 'visible'}
     });
     // Grey Mask for PA Counties
-    map.addLayer({
-    "id": "county2",
-    "type": "fill",
-    "source": {
-        type: 'vector',
-        url: 'https://tiles.dvrpc.org/data/dvrpc-municipal.json'
-    },
-    "source-layer": "county",
-    "layout": {},
-    paint: {
-    // 'fill-outline-color': '#f7c59f',
-        'fill-color': 'rgba(0,0,0,0.1)'
-    },
-    "filter": 
-    //["==","dvrpc","Yes"]
-    ["all",["!=","name","Bucks"],["!=","name","Delaware"],["!=","name","Burlington"],["!=","name","Camden"],["!=","name","Mercer"],["!=","name","Gloucester"]]
-    });
+    // map.addSource(
+    //     'mask',
+    //     {'type':'geojson',
+    //     'data': 'https://arcgis.dvrpc.org/portal/rest/services/Boundaries/CountyBoundaries/FeatureServer/0query?where=1=1&oursr=4326&returnDistinctValues=true&outfields=*&f=geojson'
+    // });
+    // map.addLayer({
+    // 'id':'mask',
+    // 'type':'fill',
+    // 'source':'mask',
+    // // "source": {
+    // //     type: 'vector',
+    // //     url: 'https://tiles.dvrpc.org/data/dvrpc-municipal.json'
+    // // },
+    // // "source-layer": "county",
+    // // "layout": {},
+    // 'paint': {
+    // // 'fill-outline-color': '#f7c59f',
+    //     'fill-color': 'rgba(0,0,0,0.1)'
+    // },
+    // 'layout':{
+    //     'visibility': 'visible'},
+   
+    // });
 
-    map.addSource('cnty', {
-    'type': 'geojson',
-        'data':"https://arcgis.dvrpc.org/portal/rest/services/Boundaries/CountyBoundaries/FeatureServer/0/query?where=co_name+%3D+%27Chester%27+or+co_name+%3D+%27Delaware%27+or+co_name+%3D+%27Montgomery%27+or+co_name+%3D+%27Philadelphia%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson"
-    });
+    // map.addSource('cnty', {
+    // 'type': 'geojson',
+    //     'data':"https://arcgis.dvrpc.org/portal/rest/services/Boundaries/CountyBoundaries/FeatureServer/0/query?where=co_name+%3D+%27Chester%27+or+co_name+%3D+%27Delaware%27+or+co_name+%3D+%27Montgomery%27+or+co_name+%3D+%27Philadelphia%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson"
+    // });
   
    // add map events here (click, mousemove, etc)
    // Add NearMap Imagery, it is added here do to neediung to place layer below road-street layer
