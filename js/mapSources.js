@@ -20,7 +20,7 @@ const sources = {
     },
     'cnty_NJ': {
     type: 'geojson',
-    data:'https://arcgis.dvrpc.org/portal/rest/services/Boundaries/CountyBoundaries/FeatureServer/0/query?where=co_name+%3D+%27Bucks%27+or+co_name+%3D+%27Delaware%27+or+co_name+%3D+%27Burlington%27+or+co_name+%3D+%27Camden%27+or+co_name+%3D+%27Gloucester%27+or+co_name+%3D+%27Mercer%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson'
+    data:'https://arcgis.dvrpc.org/portal/rest/services/Boundaries/CountyBoundaries/FeatureServer/0/query?where=co_name+%3D+%27Bucks%27+or+co_name+%3D+%27Delaware%27+or+co_name+%3D+%27Montgomery%27+or+co_name+%3D+%27Burlington%27+or+co_name+%3D+%27Camden%27+or+co_name+%3D+%27Gloucester%27+or+co_name+%3D+%27Mercer%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson'
     },
     'cnty_other': {
         type: 'geojson',

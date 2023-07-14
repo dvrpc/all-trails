@@ -24,15 +24,6 @@ const layers = {
             'line-color': '#616162'
         }
     },
-    mask: {
-        "id": "mask",
-        "type": "fill",
-        "source": "cnty_other",
-         'layout':{'visibility': 'visible'},
-        "paint": {
-            'fill-color': 'rgba(0,0,0,0.7)'
-        }
-    },
     muniOutline: {
         "id": "municipality-outline",
         "type": "line",
