@@ -72,8 +72,8 @@ map.on('load', () => {
                 // 'text-justify': 'auto',
                 'visibility': 'visible'}
     });
-    // Grey Mask for PA Counties
-    map.addLayer({
+   // Grey Mask for PA Counties
+   map.addLayer({
     "id": "county2",
     "type": "fill",
     "source": {
@@ -88,12 +88,7 @@ map.on('load', () => {
     },
     "filter": 
     //["==","dvrpc","Yes"]
-    ["all",["!=","name","Bucks"],["!=","name","Delaware"],["!=","name","Burlington"],["!=","name","Camden"],["!=","name","Mercer"],["!=","name","Gloucester"]]
-    });
-
-    map.addSource('cnty', {
-    'type': 'geojson',
-        'data':"https://arcgis.dvrpc.org/portal/rest/services/Boundaries/CountyBoundaries/FeatureServer/0/query?where=co_name+%3D+%27Chester%27+or+co_name+%3D+%27Delaware%27+or+co_name+%3D+%27Montgomery%27+or+co_name+%3D+%27Philadelphia%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson"
+    ["all",["!=","name","Bucks"],["!=","name","Delaware"],["!=","name","Montgomery"],["!=","name","Burlington"],["!=","name","Camden"],["!=","name","Mercer"],["!=","name","Gloucester"]]
     });
   
    // add map events here (click, mousemove, etc)
