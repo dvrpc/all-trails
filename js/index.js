@@ -88,7 +88,7 @@ map.on('load', () => {
     },
     "filter": 
     //["==","dvrpc","Yes"]
-    ["all",["!=","name","Bucks"],["!=","name","Delaware"],["!=","name","Montgomery"],["!=","name","Burlington"],["!=","name","Camden"],["!=","name","Mercer"],["!=","name","Gloucester"]]
+    ["all",["!=","name","Bucks"],["!=","name","Chester"],["!=","name","Delaware"],["!=","name","Montgomery"],["!=","name","Burlington"],["!=","name","Camden"],["!=","name","Mercer"],["!=","name","Gloucester"]]
     });
   
    // add map events here (click, mousemove, etc)
