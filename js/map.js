@@ -10,9 +10,9 @@ const initMap = () => {
         // style:'mapbox://styles/crvanpollard/ck5fpyqti0v971itf7edp2eyd',
         clickTolerance:5,
         // http://bboxfinder.com/#0.000000,0.000000,0.000000,0.000000
-        center: [-75.140535,40.020247],
+        center: [-75.2273, 40.071],
         zoom: 8.5,
-        minZoom: 7, 
+        minZoom: 8, 
         // bounds: [[-75.467, 39.509],[-74.467, 40.437]]
     //    bounds: [[ -76.025391,39.255651],[-73.490295,41.033787]]
   })
@@ -20,11 +20,11 @@ const initMap = () => {
 
 const makeRegionalExtentControl = map => {
     // coordinates and zoom level for regional extent
-    // const dvrpcExtent = {
-    //     bounds: [[-75.467, 39.509],[-74.467, 40.437]] 
-    //     // center: [-74.777760,39.982220], 
-    //     // zoom: 8.5
-    // }
+    const dvrpcExtent = {
+        // bounds: [[-75.467, 39.509],[-74.467, 40.437]] 
+        center: [-75.2273, 40.071],
+        zoom: 8.5,
+    }
 
     const navigationControl = new mapboxgl.NavigationControl();
 
@@ -42,13 +42,13 @@ const makeRegionalExtentControl = map => {
 
     button.setAttribute('aria-label', 'Default DVRPC Extent')
 
-    // button.onclick = () => map.flyTo({center: dvrpcExtent.center, zoom: dvrpcExtent.zoom}) 
-    button.onclick = () => {
-        map.fitBounds([
-            [-75.467, 39.509], // southwestern corner of the bounds
-            [-74.467, 40.437] // northeastern corner of the bounds
-        ]);
-    }
+    button.onclick = () => map.flyTo({center: dvrpcExtent.center, zoom: dvrpcExtent.zoom}) 
+    // button.onclick = () => {
+    //     map.fitBounds([
+    //         [-75.467, 39.509], // southwestern corner of the bounds
+    //         [-74.467, 40.437] // northeastern corner of the bounds
+    //     ]);
+    // }
 
     button.appendChild(icon)
 

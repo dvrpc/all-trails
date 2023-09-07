@@ -87,8 +87,8 @@ map.on('load', () => {
         'fill-color': 'rgba(0,0,0,0.1)'
     },
     "filter": 
-    //["==","dvrpc","Yes"]
-    ["all",["!=","name","Bucks"],["!=","name","Chester"],["!=","name","Delaware"],["!=","name","Montgomery"],["!=","name","Burlington"],["!=","name","Camden"],["!=","name","Mercer"],["!=","name","Gloucester"]]
+    ["!=","dvrpc","Yes"]
+  //  ["all",["!=","name","Bucks"],["!=","name","Chester"],["!=","name","Delaware"],["!=","name","Montgomery"],["!=","name","Burlington"],["!=","name","Camden"],["!=","name","Mercer"],["!=","name","Gloucester"]]
     });
   
    // add map events here (click, mousemove, etc)
